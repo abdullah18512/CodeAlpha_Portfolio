@@ -1,0 +1,167 @@
+/* ---------- base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #3F6C5D;
+  color: #F7F6F1;
+}
+
+/* ---------- nav links ---------- */
+.nav-link {
+  position: relative;
+  color: #5B635C;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: #3F6C5D;
+  transition: width 0.25s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #1B211D;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link-mobile {
+  color: #5B635C;
+}
+.nav-link-mobile.active {
+  color: #1B211D;
+}
+
+/* ---------- tags (about section) ---------- */
+.tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #DEDACD;
+  padding: 6px 12px;
+  color: #5B635C;
+}
+
+/* ---------- signature motif: camera viewfinder corners ---------- */
+.viewfinder {
+  position: relative;
+}
+.viewfinder::before,
+.viewfinder::after,
+.viewfinder .corner-tl,
+.viewfinder .corner-br {
+  content: "";
+}
+.viewfinder::before {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid #3F6C5D;
+  border-left: 2px solid #3F6C5D;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, width 0.25s ease, height 0.25s ease;
+}
+.viewfinder::after {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #3F6C5D;
+  border-right: 2px solid #3F6C5D;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, width 0.25s ease, height 0.25s ease;
+}
+.viewfinder:hover::before,
+.viewfinder:hover::after {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+
+/* project cards */
+.project-card {
+  border: 1px solid #DEDACD;
+  background: #F7F6F1;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.project-card:hover {
+  border-color: #3F6C5D;
+  transform: translateY(-2px);
+}
+
+/* ---------- forms ---------- */
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #DEDACD;
+  padding: 10px 2px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #1B211D;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.form-input::placeholder {
+  color: #9BA29B;
+}
+.form-input:focus {
+  border-color: #3F6C5D;
+}
+.form-input.invalid {
+  border-color: #B3543F;
+}
+.form-error {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #B3543F;
+  min-height: 16px;
+  margin-top: 6px;
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- accessibility: visible focus ring ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3F6C5D;
+  outline-offset: 2px;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .project-card:hover {
+    transform: none;
+  }
+}
