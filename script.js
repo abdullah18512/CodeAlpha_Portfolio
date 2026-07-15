@@ -1,7 +1,5 @@
-// ---------- footer year ----------
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ---------- mobile menu ----------
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 const barTop = document.getElementById("barTop");
@@ -27,7 +25,6 @@ document.querySelectorAll("[data-nav]").forEach((link) => {
   });
 });
 
-// ---------- active nav link on scroll ----------
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-link, .nav-link-mobile");
 
@@ -51,7 +48,6 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach((section) => sectionObserver.observe(section));
 
-// ---------- scroll reveal ----------
 const revealEls = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver(
@@ -68,7 +64,6 @@ const revealObserver = new IntersectionObserver(
 
 revealEls.forEach((el) => revealObserver.observe(el));
 
-// ---------- contact form validation ----------
 const form = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
 
